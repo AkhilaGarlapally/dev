@@ -6,7 +6,7 @@ node('master'){
             }
     stage('jobdsl')
             {
-                jobDsl targets : jobdslscripts
+                jobDsl targets: '*.groovy'
             }
 
 }
