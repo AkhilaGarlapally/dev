@@ -1,7 +1,6 @@
 def environment ='dev'
 def gitBranch   ='master'
 
-def jobdslscripts ='test/jobdsl.groovy'
 
 pipelineJob('testadminjob')
         {
@@ -11,9 +10,9 @@ pipelineJob('testadminjob')
                 choiceParam('gitbranch',gitBranch, '')
                 choiceParam('environment',environment, '')
             }
-            definitions{
+            definition{
                 cps{
-                    script(readFileFromWorkspace(jobdslscripts))
+                    script(readFileFromWorkspace('test/jobdsl.groovy'))
                     sandbox()
                 }
 
